@@ -1,3 +1,16 @@
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+  res.send('Minecraft Bot is running 24/7!');
+});
+
+app.listen(port, () => {
+  console.log(`Web server running on port ${port}`);
+});
+
+// --- Yahan se aapka Mineflayer bot shuru hoga ---
 const mineflayer = require('mineflayer');
 const { pathfinder, Movements, goals } = require('mineflayer-pathfinder');
 
@@ -11,7 +24,7 @@ bot.loadPlugin(pathfinder);
 
 bot.on('spawn', () => {
   console.log("Bot server par aa gaya hai!");
-  bot.chat('Hello bhai! Main aa gaya hoon.');
+  bot.chat('Hello bhai! Railway se aa gaya hoon.');
 });
 
 bot.on('chat', (username, message) => {
@@ -32,7 +45,7 @@ bot.on('chat', (username, message) => {
 });
 
 bot.on('end', () => {
-  console.log('Bot disconnect ho gaya, dobara reconnect kar raha hoon...');
+  console.log('Bot disconnect ho gaya, dobara reconnect ho raha hai...');
   setTimeout(() => process.exit(0), 5000);
 });
 
